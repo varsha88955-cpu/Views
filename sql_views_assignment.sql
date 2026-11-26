@@ -1,85 +1,81 @@
-
 -- 1. Create a view to display all employee details.
-create view vw_all_employees as select * from employee;
+create or replace view vw_all_employees as select * from employee;
 
 
 -- 2. Create a view to display emp_id, emp_name, and salary.
-create view vw_id_name_salary as select emp_id, emp_name, salary from employee;
+create or replace view vw_id_name_salary as select emp_id, emp_name, salary from employee;
 
 
 -- 3. Create a view to display emp_name and department.
-create view vw_name_department as select emp_name, department from employee;
+create or replace view vw_name_department as select emp_name, department from employee;
 
 
 -- 4. Create a view to display IT employees.
-create view vw_it_employees as select * from employee where department = 'IT';
+create or replace view vw_it_employees as select * from employee where department = 'IT';
 
 
 -- 5. Create a view to display HR employees.
-create view vw_hr_employees as select * from employee where department = 'HR';
+create or replace view vw_hr_employees as select * from employee where department = 'HR';
 
 
 -- 6. Create a view to display Hyderabad employees.
-create view vw_hyderabad_employees as select * from employee where city = 'Hyderabad';
+create or replace view vw_hyderabad_employees as select * from employee where city = 'Hyderabad';
 
 
 -- 7. Create a view to display employees with salary greater than 40,000.
-create view vw_salary_gt_40000 as select * from employee where salary > 40000;
+create or replace view vw_salary_gt_40000 as select * from employee where salary > 40000;
 
 
 -- 8. Create a view to display employees whose age is greater than 25.
-create view vw_age_gt_25 as select * from employee where age > 25;
+create or replace view vw_age_gt_25 as select * from employee where age > 25;
 
 
 -- 9. Create a view to display employees with salary between 30,000 and 60,000.
-create view vw_salary_between_30k_60k as select * from employee where salary between 30000 and 60000;
+create or replace view vw_salary_between_30k_60k as select * from employee where salary between 30000 and 60000;
 
 
 -- 10. Create a view to display employees whose name starts with A.
-create view vw_name_starts_with_A as select * from employee where emp_name like 'A%';
+create or replace view vw_name_starts_with_A as select * from employee where emp_name like 'A%';
 
 
 -- 11. Create a view to display IT employees with salary greater than 50,000.
-create view vw_it_salary_gt_50000 as select * from employee where department = 'IT' and salary > 50000;
+create or replace view vw_it_salary_gt_50000 as select * from employee where department = 'IT' and salary > 50000;
 
 
 -- 12. Create a view to display Hyderabad employees with salary less than 60,000.
-create view vw_hyderabad_salary_lt_60000 as select * from employee where city = 'Hyderabad' and salary < 60000;
+create or replace view vw_hyderabad_salary_lt_60000 as select * from employee where city = 'Hyderabad' and salary < 60000;
 
 
 -- 13. Create a view to display employees whose age is between 25 and 30.
-create view vw_age_between_25_30 as select * from employee where age between 25 and 30;
+create or replace view vw_age_between_25_30 as select * from employee where age between 25 and 30;
 
 
 -- 14. Create a view to display employees who are not from Chennai.
-create view vw_not_chennai as select * from employee where city != 'Chennai';
+create or replace view vw_not_chennai as select * from employee where city <> 'Chennai';
 
 
 -- 15. Create a view to display IT and HR employees.
-create view vw_it_hr_employees as select * from employee where department in ('IT', 'HR');
+create or replace view vw_it_hr_employees as select * from employee where department = 'IT' or department = 'HR';
 
 
 -- 16. Create a view to display employees with salary > 40,000 and age > 25.
-create view vw_salary_gt_40000_and_age_gt_25 as select * from employee where salary > 40000 and age > 25;
+create or replace view vw_salary_gt_40000_and_age_gt_25 as select * from employee where salary > 40000 and age > 25;
 
 
 -- 17. Create a view to display Hyderabad or Bangalore employees.
-create view vw_hyderabad_or_bangalore as select * from employee where city in ('Hyderabad', 'Bangalore');
+create or replace view vw_hyderabad_or_bangalore as select * from employee where city = 'Hyderabad' or city = 'Bangalore';
 
 
 -- 18. Create a view to display employees whose salary is not equal to 40,000.
-create view vw_salary_not_40000 as select * from employee where salary != 40000;
+create or replace view vw_salary_not_40000 as select * from employee where salary <> 40000;
 
 
 -- 19. Create a view to display employees who are not in Finance.
-create view vw_department_not_finance as select * from employee where department != 'Finance';
+create or replace view vw_department_not_finance as select * from employee where department <> 'Finance';
 
 
 -- 20. Create a view to display employees whose name contains the letter 'a' (case-insensitive).
-create view vw_name_contains_a as select * from employee where lower(emp_name) like '%a%';
-
-
--- DATA MANIPULATION THROUGH VIEWS
+create or replace view vw_name_contains_a as select * from employee where lower(emp_name) like '%a%';
 
 
 -- 21. Using vw_all_employees, update Karthik's salary to 55,000.
